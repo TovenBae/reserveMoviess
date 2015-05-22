@@ -1,0 +1,28 @@
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: #00B7FF;
+}
+
+.line { 
+	overflow: hidden; 
+}
+
+.seat {
+	margin: 2px; float: left;
+	width:30px; height: 30px;
+	border-radius: 3px
+}
+
+.enable{ 
+	background: gray
+}
+
+.enable:hover { 
+	background: black 
+}
+
+.disable { background: red;}
