@@ -1,8 +1,8 @@
 var express = require('express');
 var router = express.Router();
 
-// 자리 설정을 위한 변수 선언
-var seats = [
+// 휴가 설정을 위한 변수 선언
+var dayoffs = [
   [1, 1, 0, 1, 1, 0, 0, 0, 0, 1, 1, 0, 1, 1],
   [1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1],
   [1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1],
@@ -19,7 +19,7 @@ var seats = [
 
 router.use(function(req, res, next) {
 	console.log('router use');
-	console.log(seats);
+	console.log(dayoffs);
 	next();
 });
 
@@ -33,54 +33,50 @@ router.get('/', function(req, res, next) {
 });
 
 /* GET -> JSON */
-router.get('/apiget', function(req, res, next) {
+router.get('/getdayoff', function(req, res, next) {
 	console.log(req.query);
-  var oData = {};
-  if (seats[req.query.x][req.query.y] === 2) {
-    oData.message = "예약";
-  } else if (seats[req.query.x][req.query.y] === 1) {
-    oData.message = "비움";
-  } else {
-    oData.message = "자리없음"
+  var oData = {
+    message: 'SUCCESS',
+    remainDayOff: 15
+  };
+  if (req.query.userid !== 'BSH') {
+    oData.remainDayOff = 20
   }
   	// res.render('seats', { title: 'Seats' });
   	res.send(oData);
 });
 
 /* GET -> String */
-router.get('/apiget2', function(req, res, next) {
+router.get('/getdayoff2', function(req, res, next) {
 	console.log(req.query);
-  var oData = {};
-  if (seats[req.query.x][req.query.y] === 2) {
-    oData.message = "예약";
-  } else if (seats[req.query.x][req.query.y] === 1) {
-    oData.message = "비움";
-  } else {
-    oData.message = "자리없음"
+  var oData = {
+    message: 'SUCCESS',
+    remainDayOff: 15
+  };
+  if (req.query.userid !== 'bsh') {
+    oData.remainDayOff = 20
   }
   	// res.render('seats', { title: 'Seats' });
-  	res.send(oData.message);
+  	res.send(oData.remainDayOff);
 });
 
 /* POST -> JSON */
-router.post('/apipost', function(req, res, next) {
+router.post('/setdayoff', function(req, res, next) {
 	console.log(req.body);
-  var oData = {};
-  seats[req.body.x][req.body.y] = 2;
-  oData.message = "예약완료"
-  	// res.render('seats', { title: 'Seats' });
+  var oData = {
+    message: 'SUCCESS'
+  };
   res.send(oData);
 });
 
-/* POST -> JSON */
-router.post('/apipost2', function(req, res, next) {
+/* POST -> String */
+router.post('/setdayoff2', function(req, res, next) {
   console.log(req.body);
-  var oData = {};
-  seats[req.body.x][req.body.y] = 2;
-  oData.message = "예약완료"
-  	// res.render('seats', { title: 'Seats' });
+  var oData = {
+    message: 'SUCCESS'
+  };
   res.send(oData.message);
 });
 
 module.exports = router;
-module.exports.seats = seats;
+module.exports.dayoffs = dayoffs;

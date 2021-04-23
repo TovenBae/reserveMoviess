@@ -1,0 +1,56 @@
+tmp/
+target/
+chatbot/data
+chatmanager/deploy
+chatmanager/excel
+logs/
+*.tmp
+*.bak
+*.log
+*.swp
+*~.nib
+local.properties
+.springBeans
+.settings/
+.loadpath
+.recommenders
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.next
+release.properties
+dependency-reduced-pom.xml
+buildNumber.properties
+.mvn/timing.properties
+
+# Eclipse Core
+.project
+
+# JDT-specific (Eclipse Java Development Tools)
+.classpath
+
+# Avoid ignoring Maven wrapper jar file (.jar files are usually ignored)
+!/.mvn/wrapper/maven-wrapper.jar
+
+# Node.js
+node_modules/
+bower_components/
+/lark-cms/backend/deploy/
+/lark-cms/backend/public/upload/
+
+# Intellij
+*.iml
+.idea/**/*.xml
+.idea/*.xml
+
+# VisualStudio Code
+*.code-workspace
+
+.idea/encodings.xml
+.idea/misc.xml
+.idea/modules.xml
+.idea/workspace.xml
+lark-cms/frontend/src/assets/js/plugin/ckeditor/samples/plugins/htmlwriter/assets/outputforflash/outputforflash.swf
+lark-cms/frontend/src/assets/js/plugin/datatables/media/as3/lib/AlivePDF.swc
+lark-cms/frontend/src/assets/js/plugin/datatables/media/swf/copy_csv_xls_pdf.swf
+lark-cms/frontend/src/assets/js/plugin/datatables/media/swf/copy_csv_xls.swf

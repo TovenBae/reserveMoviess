@@ -9,6 +9,7 @@ var bodyParser = require('body-parser');
 var routes = require('./routes/index');
 var users = require('./routes/users');
 var rsv = require('./routes/seats');
+var dayoff = require('./routes/dayoff');
 
 
 var app = express();
@@ -29,6 +30,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', routes);
 app.use('/users', users);
 app.use('/seats', rsv);
+app.use('/dayoff', dayoff);
 
 app.set('port', 3000);
 // 서버 실행
